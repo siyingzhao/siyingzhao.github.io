@@ -15,13 +15,16 @@
 
 .icon-bilibili1:before {
   content: "\eb78";
+  font-size: 24px;
 }
 
 .icon-github:before {
   content: "\e600";
+  font-size: 24px;
 }
 
 .icon-bilibili:before {
   content: "\e601";
+  font-size: 24px;
 }
 
