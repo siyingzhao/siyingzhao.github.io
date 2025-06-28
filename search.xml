@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>初等概率论复习|Lecture_1</title>
+    <url>/2024/10/09/%E5%88%9D%E7%AD%89%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%8D%E4%B9%A0-Lecture-1/</url>
+    <content><![CDATA[<p>本系列贴文根据清华大学统计与数据科学系邓婉璐老师的初等概率论课件和其他相关资料，以及自己的思考整理而来，供考前复习使用，也欢迎大家参考~（顺便练一练latex语法😂）</p>
+<h1>Lecture 1</h1>
+<h2 id="样本空间">样本空间</h2>
+<p>定义：样本空间是<strong>集合</strong>，其中元素是概率模型所关联试验的每一种可能结果。<br>
+符号：$\Omega$<br>
+其中实验结果要求：互斥且完整，数量上可以有限也可以无限。</p>
+<h2 id="事件">事件</h2>
+<p>定义：样本空间的子集，某些实验结果的集合<br>
+对于事件，我们用“发生”，“不发生”来描述。</p>
+<h2 id="概率（函数）">概率（函数）</h2>
+<p>概率被分配到事件上，形象化可以说是对事件发生可能性的一种“信念”。这种分配方式就是概率函数。</p>
+<h3 id="概率公理">概率公理</h3>
+<p><img src="https://fastly.jsdelivr.net/gh/siyingzhao/BlogImage@main/img/image-20241009210313076.png" alt=""></p>
+<p>其中公理3需要加强为<strong>可列可加性</strong>，上述可加性还只是局限于有限可加性。（有限可加性是由可列可加性推导而来的）把公理3替换为可列可加性就得到了事实上的概率公理。<br>
+<img src="https://fastly.jsdelivr.net/gh/siyingzhao/BlogImage@main/img/image-20241009210856974.png" alt=""></p>
+<p>注意：并不是任意样本空间的子集都可以被分配概率。</p>
+<h3 id="概率的性质">概率的性质</h3>
+<h4 id="容斥恒等式（The-inclusion-exclusion-formula）">容斥恒等式（The inclusion-exclusion formula）</h4>
+<p><img src="https://fastly.jsdelivr.net/gh/siyingzhao/BlogImage@main/img/image-20241009211311925.png" alt=""></p>
+<h4 id="Bonferroni’s-inequality">Bonferroni’s inequality</h4>
+<p>$$<br>
+如果有事件A_{i}, (i=1,\ldots, n)，则\<br>
+P\left(\bigcup_{i=1}^{n} A_{i}\right) \geq \sum_{1 \leq i \leq n} P\left(A_{i}\right) - \sum_{1 \leq i &lt; j \leq n} P\left(A_{i} \cap A_{j}\right)<br>
+$$</p>
+<p>可由容斥恒等式推导。它提供了一组和事件概率的下界。(证明过程后续补)</p>
+<h4 id="Kounias’s-inequality">Kounias’s inequality</h4>
+<p>$$<br>
+P\left(\bigcup_{i=1}^{n} A_{i}\right) \leq \min_{k} \left( \sum_{1 \leq i \leq n}P(A_i) - \sum_{i:i\neq k} P(A_i \cap A_k) \right)<br>
+$$</p>
+<p>它提供了一组和事件概率的上界。</p>
+<h2 id="随机抽样与随机分配">随机抽样与随机分配</h2>
+<p><img src="https://fastly.jsdelivr.net/gh/siyingzhao/BlogImage@main/img/image-20241009214729806.png" alt=""></p>
+<p><img src="https://fastly.jsdelivr.net/gh/siyingzhao/BlogImage@main/img/image-20241009214918150.png" alt="两个实用小公式"></p>
+<h3 id="对于有放回无序抽样结论的证明">对于有放回无序抽样结论的证明</h3>
+<p>考虑从m个不同元素集合中抽取n次，每次抽取完后放回。<br>
+等价为把n个相同小球撒到m个从左到右排列的格子里，计算所有的可能方案数量。<br>
+又等价为n个球和m-1个+有多少种排列方式（想象假如3个球，0+0+3是一种,1+0+2也是一种)<br>
+所以排列总方式为 $\binom{m+n-1}{n}$</p>
+<p><img src="https://fastly.jsdelivr.net/gh/siyingzhao/BlogImage@main/img/image-20241009232518309.png" alt="古典概型解题辅助技巧"></p>
+]]></content>
+      <tags>
+        <tag>初等概率论</tag>
+      </tags>
+  </entry>
+</search>
