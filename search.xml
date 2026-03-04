@@ -1,16 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>MathJax 公式渲染测试</title>
+    <url>/2026/03/04/math-test/</url>
+    <content><![CDATA[<p>本文用于测试 MathJax 公式渲染是否正常工作。</p>
+<span id="more"></span>
+<h2 id="行内公式">行内公式</h2>
+<p>欧拉公式：<span class="math inline">\(e^{i\pi} + 1 = 0\)</span></p>
+<p>质能方程：<span class="math inline">\(E = mc^2\)</span></p>
+<p>sigmoid 函数：<span class="math inline">\(\sigma(x) = \dfrac{1}{1 +
+e^{-x}}\)</span></p>
+<h2 id="块级公式">块级公式</h2>
+<h3 id="高斯分布">高斯分布</h3>
+<p><span class="math display">\[
+f(x) = \frac{1}{\sigma\sqrt{2\pi}}
+\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+\]</span></p>
+<h3 id="逻辑回归损失函数">逻辑回归损失函数</h3>
+<p><span class="math display">\[
+J(\theta) = -\frac{1}{m}\sum_{i=1}^{m}\left[y^{(i)}\log
+h_\theta(x^{(i)}) +
+(1-y^{(i)})\log\left(1-h_\theta(x^{(i)})\right)\right]
+\]</span></p>
+<h3 id="矩阵运算">矩阵运算</h3>
+<p><span class="math display">\[
+\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}
+\begin{pmatrix} x \\ y \end{pmatrix}
+=
+\begin{pmatrix} ax + by \\ cx + dy \end{pmatrix}
+\]</span></p>
+<h3 id="ams-公式编号">AMS 公式编号</h3>
+<p><span class="math display">\[
+\begin{equation}
+  \nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}
+  \label{eq:gauss}
+\end{equation}
+\]</span></p>
+<p>如公式 <span class="math inline">\(\eqref{eq:gauss}\)</span>
+所示，这是高斯定律。</p>
+<h2 id="希腊字母-符号">希腊字母 &amp; 符号</h2>
+<p><span class="math display">\[
+\alpha,\ \beta,\ \gamma,\ \delta,\ \epsilon,\ \zeta,\ \eta,\ \theta,\
+\lambda,\ \mu,\ \pi,\ \sigma,\ \phi,\ \psi,\ \omega
+\]</span></p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}
+\]</span></p>
+<p><span class="math display">\[
+\int_{-\infty}^{+\infty} e^{-x^2} dx = \sqrt{\pi}
+\]</span></p>
+]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>math</tag>
+        <tag>mathjax</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World - 测试博文</title>
     <url>/2026/03/04/hello-world/</url>
     <content><![CDATA[<p>这是一篇测试博文，用于验证博客生成流程是否正常。</p>
 <span id="more"></span>
-<h2 id="Hexo-博客测试">Hexo 博客测试</h2>
+<h2 id="hexo-博客测试">Hexo 博客测试</h2>
 <p>如果你能看到这篇文章，说明博客一切正常！🎉</p>
 <h3 id="功能验证">功能验证</h3>
 <ul>
 <li>✅ Hexo 文章生成</li>
-<li>✅ NexT 主题渲染</li>
+<li>✅ NexT 主题渲染<br />
+</li>
 <li>✅ Netlify 部署</li>
 </ul>
 <blockquote>
