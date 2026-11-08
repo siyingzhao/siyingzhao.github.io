@@ -3,75 +3,136 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="昭思应的个人主页、研究项目与联系方式。">
-  <title>昭思应 · 个人主页</title>
+  <title>昭思应 · Bangshuai Peng</title>
+  <meta name="description" content="昭思应（Bangshuai Peng），清华大学工业工程系本科生，关注机器人学习。">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://siyingzhao.github.io/">
+  <link rel="icon" href="images/avatar.jpg">
+  <link rel="apple-touch-icon" href="images/avatar.jpg">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="昭思应 · Bangshuai Peng">
+  <meta property="og:description" content="清华大学工业工程系本科生，关注机器人学习。">
+  <meta property="og:image" content="https://siyingzhao.github.io/images/avatar.jpg">
   <style>
+    :root {
+      --text: #1f2328;
+      --muted: #656d76;
+      --rule: #e4e6ea;
+      --link: #1a5fb4;
+      --hover: #c2410c;
+      --bg: #ffffff;
+      --card: #f4f5f7;
+      --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+      --serif: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", "STSong", Georgia, serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text: #e6e8eb;
+        --muted: #9aa3ad;
+        --rule: #2d333b;
+        --link: #6cb6ff;
+        --hover: #ffa657;
+        --bg: #101318;
+        --card: #181c22;
+      }
+    }
     * { box-sizing: border-box; }
-    body { margin: 0; background: white; color: #202124; font: 16px/1.75 Inter, "PingFang SC", "Microsoft YaHei", sans-serif; }
-    main { max-width: 824px; margin: auto; padding: 64px 28px 32px; }
-    a { color: #1769a6; text-decoration: none; }
-    a:hover, a:focus-visible { color: #995100; text-decoration: underline; }
-    header { display: flex; align-items: center; justify-content: space-between; gap: 48px; }
-    header img { width: 172px; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 50%; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.8 var(--sans); }
+    main { max-width: 800px; margin: 0 auto; padding: 80px 24px 48px; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover, a:focus-visible { color: var(--hover); text-decoration: underline; text-underline-offset: 3px; }
     h1, h2, h3, p { margin: 0; }
-    h1 { font-size: 36px; font-weight: 550; letter-spacing: .06em; }
-    header p { margin: 12px 0; }
-    nav { display: flex; flex-wrap: wrap; gap: 0 18px; }
-    section { margin-top: 60px; }
-    h2 { font-size: 24px; font-weight: 500; }
-    article { display: grid; grid-template-columns: 152px 1fr; align-items: center; gap: 26px; margin: 26px 0; }
-    .menu { margin-bottom: 40px; padding-bottom: 12px; border-bottom: 1px solid #ddd; }
-    .project-image { width: 100%; display: block; }
-    .update { margin-top: 16px; }
-    time { color: #62676a; margin-right: 12px; }
-    h3 { font-size: 18px; line-height: 1.45; }
-    article p { margin: 6px 0; }
-    @media (max-width: 620px) {
-      main { padding: 32px 20px; }
-      header { flex-direction: column-reverse; align-items: flex-start; gap: 12px; }
-      header img { width: 108px; }
-      section { margin-top: 36px; }
-      article { grid-template-columns: 1fr; gap: 14px; }
-      .project-image { max-width: 300px; }
+
+    .intro { display: grid; grid-template-columns: 1fr 168px; gap: 48px; align-items: center; }
+    .name { font-family: var(--serif); font-size: 40px; font-weight: 600; letter-spacing: .08em; line-height: 1.2; }
+    .name-en { margin-top: 8px; color: var(--muted); font-size: 17px; letter-spacing: .02em; }
+    .bio { margin-top: 22px; }
+    .links { margin-top: 16px; }
+    .links .sep { margin: 0 10px; color: var(--rule); }
+    .avatar { display: block; width: 168px; height: 168px; border-radius: 50%; object-fit: cover; background: var(--card); }
+
+    section { margin-top: 64px; }
+    h2 { font-family: var(--serif); font-size: 22px; font-weight: 600; letter-spacing: .06em; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+
+    .news { list-style: none; margin: 18px 0 0; padding: 0; }
+    .news li { display: grid; grid-template-columns: 80px 1fr; gap: 12px; padding: 4px 0; }
+    .news time { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+    .pub { display: grid; grid-template-columns: 240px 1fr; gap: 28px; margin-top: 28px; align-items: start; }
+    .pub-media { display: block; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; background: var(--card); }
+    .pub-media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+    .pub-media:hover img { transform: scale(1.04); }
+    .pub-title { font-size: 17px; font-weight: 600; line-height: 1.5; }
+    .pub-title a { color: var(--text); }
+    .pub-title a:hover, .pub-title a:focus-visible { color: var(--hover); }
+    .pub-authors { margin-top: 6px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+    .pub-authors strong { color: var(--text); font-weight: 600; }
+    .pub-venue { margin-top: 2px; color: var(--muted); font-size: 15px; }
+    .pub-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; font-size: 14px; line-height: 1.6; }
+    .pub-links a { padding: 1px 12px; border: 1px solid var(--rule); border-radius: 999px; }
+    .pub-links a:hover, .pub-links a:focus-visible { border-color: currentColor; text-decoration: none; }
+    .pub-desc { margin-top: 12px; font-size: 15px; }
+
+    footer { margin-top: 88px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 13px; }
+
+    @media (max-width: 640px) {
+      main { padding: 44px 20px 32px; }
+      .intro { grid-template-columns: 1fr; gap: 20px; }
+      .avatar { order: -1; width: 112px; height: 112px; }
+      .name { font-size: 32px; }
+      section { margin-top: 48px; }
+      .pub { grid-template-columns: 1fr; gap: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pub-media img { transition: none; }
     }
   </style>
 </head>
 <body>
   <main>
-    <nav class="menu" aria-label="页内导航">
-      <a href="#profile">简介</a><a href="#updates">动态</a><a href="#research">研究</a>
-    </nav>
-    <header id="profile">
+    <header class="intro">
       <div>
-        <h1>昭思应</h1>
-        <p>清华大学 · 工业工程专业，辅修统计学。</p>
-        <nav aria-label="联系方式">
-          <a href="mailto:pbs23@mails.tsinghua.edu.cn">pbs23@mails.tsinghua.edu.cn</a>
-          <a href="https://github.com/siyingzhao">GitHub</a>
-        </nav>
+        <h1 class="name">昭思应</h1>
+        <p class="name-en" lang="en">Bangshuai Peng</p>
+        <p class="bio">清华大学工业工程系本科生，辅修统计学。目前关注机器人学习，特别是视觉–语言–动作（VLA）模型的泛化能力与评测。</p>
+        <p class="links">
+          <a href="mailto:pbs23@mails.tsinghua.edu.cn">Email</a><span class="sep" aria-hidden="true">/</span><a href="https://github.com/siyingzhao">GitHub</a>
+        </p>
       </div>
-      <img src="images/avatar.jpg" width="172" height="172" alt="昭思应的头像">
+      <img class="avatar" src="images/avatar.jpg" width="168" height="168" alt="昭思应的头像">
     </header>
-    <section aria-labelledby="updates">
-      <h2 id="updates">近期动态</h2>
-      <p class="update"><time datetime="2026-10">2026.10</time> <a href="#burger">BURGER</a> 预印本发布，探索机器人如何根据语言指令作画。</p>
+
+    <section aria-labelledby="news">
+      <h2 id="news">近期动态</h2>
+      <ul class="news">
+        <li><time datetime="2026-10">2026.10</time><span><a href="#burger">BURGER</a> 预印本发布于 arXiv。</span></li>
+      </ul>
     </section>
+
     <section aria-labelledby="research">
-      <h2 id="research">研究项目</h2>
-      <article id="burger">
-        <img class="project-image" src="images/burger.jpg" alt="BURGER 项目演示画面">
+      <h2 id="research">研究</h2>
+      <article class="pub" id="burger">
+        <a class="pub-media" href="https://siyingzhao.github.io/BURGER/" tabindex="-1" aria-hidden="true">
+          <img src="images/burger.jpg" width="1600" height="900" alt="" loading="lazy">
+        </a>
         <div>
-          <h3 lang="en"><a href="https://siyingzhao.github.io/BURGER/">BURGER: Benchmarking and Understanding Robotic Generalization via Embodied Drawing</a></h3>
-          <p lang="en">Xiangyu Xu, Bangshuai Peng, Ziyi Liu, Mengjie Zhao, Chenhao Lu, Zhengyang Fan, Huazhe Xu, Kaizhe Hu</p>
-          <p><i>arXiv</i>, 2026</p>
-          <p>从空白画布出发，让机械臂按照指令作画。研究团队通过 282 项绘画任务，比较了五种视觉–语言–动作模型对物体、空间关系和动作轨迹的掌握程度。</p>
-          <nav aria-label="项目相关链接">
+          <h3 class="pub-title" lang="en"><a href="https://siyingzhao.github.io/BURGER/">BURGER: Benchmarking and Understanding Robotic Generalization via Embodied Drawing</a></h3>
+          <p class="pub-authors" lang="en">Xiangyu Xu, <strong>Bangshuai Peng</strong>, Ziyi Liu, Mengjie Zhao, Chenhao Lu, Zhengyang Fan, Huazhe Xu, Kaizhe Hu</p>
+          <p class="pub-venue"><i>arXiv preprint</i>, 2026</p>
+          <p class="pub-links">
             <a href="https://siyingzhao.github.io/BURGER/">项目主页</a>
-            <a href="https://arxiv.org/abs/2610.40532">论文</a>
-          </nav>
+            <a href="https://arxiv.org/abs/2610.40532">arXiv</a>
+            <a href="https://github.com/siyingzhao/BURGER">代码</a>
+          </p>
+          <p class="pub-desc">一个以语言为条件的机器人绘画基准：机械臂从同一张空白画布出发，按指令画出物体或空间组合。我们用 282 项绘画任务、28,200 条仿真示范评测了五种代表性 VLA 模型在数据规模、语言理解和多模态行为上的表现，并在 Franka Panda 机械臂上完成了真机部署。</p>
         </div>
       </article>
     </section>
+
+    <footer>
+      <p>最后更新于 2026 年 11 月</p>
+    </footer>
   </main>
 </body>
 </html>
