@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bangshuai Peng</title>
   <meta name="description" content="Bangshuai Peng (彭邦帅), undergraduate at Tsinghua University working on robot learning.">
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="light">
   <link rel="canonical" href="https://siyingzhao.github.io/">
   <link rel="icon" href="images/avatar.jpg">
   <link rel="apple-touch-icon" href="images/avatar.jpg">
@@ -43,18 +43,6 @@
       --card: #181c22;
       color-scheme: dark;
     }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --text: #e6e8eb;
-        --muted: #9aa3ad;
-        --rule: #2d333b;
-        --link: #6cb6ff;
-        --hover: #ffa657;
-        --bg: #101318;
-        --card: #181c22;
-        color-scheme: dark;
-      }
-    }
     * { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
     body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.7 var(--sans); transition: background-color .2s ease, color .2s ease; }
@@ -69,10 +57,6 @@
     .theme-toggle .moon { display: none; }
     :root[data-theme="dark"] .theme-toggle .sun { display: none; }
     :root[data-theme="dark"] .theme-toggle .moon { display: block; }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) .theme-toggle .sun { display: none; }
-      :root:not([data-theme="light"]) .theme-toggle .moon { display: block; }
-    }
 
     .intro { display: grid; grid-template-columns: 1fr minmax(190px, 32%); gap: 32px; align-items: center; }
     .name { font-family: var(--serif); font-size: 40px; font-weight: 600; letter-spacing: .01em; line-height: 1.2; }
@@ -190,10 +174,8 @@
   <script>
     (() => {
       const root = document.documentElement;
-      const media = matchMedia('(prefers-color-scheme: dark)');
-      const current = () => root.dataset.theme || (media.matches ? 'dark' : 'light');
       document.querySelector('.theme-toggle').addEventListener('click', () => {
-        const next = current() === 'dark' ? 'light' : 'dark';
+        const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
         root.dataset.theme = next;
         try { localStorage.setItem('theme', next); } catch (e) {}
       });
