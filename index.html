@@ -1,18 +1,25 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>昭思应 · Bangshuai Peng</title>
-  <meta name="description" content="昭思应（Bangshuai Peng），清华大学工业工程系本科生，关注机器人学习。">
+  <title>Bangshuai Peng</title>
+  <meta name="description" content="Bangshuai Peng (彭邦帅), undergraduate at Tsinghua University working on robot learning.">
   <meta name="color-scheme" content="light dark">
   <link rel="canonical" href="https://siyingzhao.github.io/">
   <link rel="icon" href="images/avatar.jpg">
   <link rel="apple-touch-icon" href="images/avatar.jpg">
   <meta property="og:type" content="profile">
-  <meta property="og:title" content="昭思应 · Bangshuai Peng">
-  <meta property="og:description" content="清华大学工业工程系本科生，关注机器人学习。">
+  <meta property="og:title" content="Bangshuai Peng">
+  <meta property="og:description" content="Undergraduate at Tsinghua University working on robot learning.">
   <meta property="og:image" content="https://siyingzhao.github.io/images/avatar.jpg">
+  <script>
+    // Apply the saved theme before first paint to avoid a flash.
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
+    } catch (e) {}
+  </script>
   <style>
     :root {
       --text: #1f2328;
@@ -22,11 +29,22 @@
       --hover: #c2410c;
       --bg: #ffffff;
       --card: #f4f5f7;
-      --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
-      --serif: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", "STSong", Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Songti SC", serif;
+      color-scheme: light;
+    }
+    :root[data-theme="dark"] {
+      --text: #e6e8eb;
+      --muted: #9aa3ad;
+      --rule: #2d333b;
+      --link: #6cb6ff;
+      --hover: #ffa657;
+      --bg: #101318;
+      --card: #181c22;
+      color-scheme: dark;
     }
     @media (prefers-color-scheme: dark) {
-      :root {
+      :root:not([data-theme="light"]) {
         --text: #e6e8eb;
         --muted: #9aa3ad;
         --rule: #2d333b;
@@ -34,41 +52,56 @@
         --hover: #ffa657;
         --bg: #101318;
         --card: #181c22;
+        color-scheme: dark;
       }
     }
     * { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
-    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.8 var(--sans); }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.7 var(--sans); transition: background-color .2s ease, color .2s ease; }
     main { max-width: 800px; margin: 0 auto; padding: 80px 24px 48px; }
     a { color: var(--link); text-decoration: none; }
     a:hover, a:focus-visible { color: var(--hover); text-decoration: underline; text-underline-offset: 3px; }
     h1, h2, h3, p { margin: 0; }
 
+    .theme-toggle { position: fixed; top: 16px; right: 16px; display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid var(--rule); border-radius: 50%; background: var(--bg); color: var(--muted); cursor: pointer; }
+    .theme-toggle:hover, .theme-toggle:focus-visible { color: var(--hover); border-color: currentColor; }
+    .theme-toggle svg { width: 18px; height: 18px; }
+    .theme-toggle .moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .sun { display: none; }
+    :root[data-theme="dark"] .theme-toggle .moon { display: block; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .sun { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .moon { display: block; }
+    }
+
     .intro { display: grid; grid-template-columns: 1fr 168px; gap: 48px; align-items: center; }
-    .name { font-family: var(--serif); font-size: 40px; font-weight: 600; letter-spacing: .08em; line-height: 1.2; }
-    .name-en { margin-top: 8px; color: var(--muted); font-size: 17px; letter-spacing: .02em; }
-    .bio { margin-top: 22px; }
+    .name { font-family: var(--serif); font-size: 40px; font-weight: 600; letter-spacing: .01em; line-height: 1.2; }
+    .name-zh { margin-left: 12px; color: var(--muted); font-family: var(--sans); font-size: 22px; font-weight: 400; letter-spacing: .08em; }
+    .bio { margin-top: 20px; }
     .links { margin-top: 16px; }
     .links .sep { margin: 0 10px; color: var(--rule); }
     .avatar { display: block; width: 168px; height: 168px; border-radius: 50%; object-fit: cover; background: var(--card); }
 
     section { margin-top: 64px; }
-    h2 { font-family: var(--serif); font-size: 22px; font-weight: 600; letter-spacing: .06em; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+    h2 { font-family: var(--serif); font-size: 24px; font-weight: 600; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
 
     .news { list-style: none; margin: 18px 0 0; padding: 0; }
-    .news li { display: grid; grid-template-columns: 80px 1fr; gap: 12px; padding: 4px 0; }
+    .news li { display: grid; grid-template-columns: 84px 1fr; gap: 12px; padding: 4px 0; }
     .news time { color: var(--muted); font-variant-numeric: tabular-nums; }
 
-    .pub { display: grid; grid-template-columns: 240px 1fr; gap: 28px; margin-top: 28px; align-items: start; }
+    .pub { display: grid; grid-template-columns: 260px 1fr; gap: 28px; margin-top: 28px; align-items: start; }
     .pub-media { display: block; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; background: var(--card); }
-    .pub-media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
-    .pub-media:hover img { transform: scale(1.04); }
-    .pub-title { font-size: 17px; font-weight: 600; line-height: 1.5; }
+    .pub-media video, .pub-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .pub-title { font-size: 17px; font-weight: 600; line-height: 1.45; }
     .pub-title a { color: var(--text); }
     .pub-title a:hover, .pub-title a:focus-visible { color: var(--hover); }
     .pub-authors { margin-top: 6px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+    .pub-authors a { color: inherit; }
+    .pub-authors a:hover, .pub-authors a:focus-visible { color: var(--hover); }
     .pub-authors strong { color: var(--text); font-weight: 600; }
     .pub-venue { margin-top: 2px; color: var(--muted); font-size: 15px; }
+    .pub-venue em { font-style: italic; }
+    .pub-note { color: var(--muted); font-size: 13px; }
     .pub-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; font-size: 14px; line-height: 1.6; }
     .pub-links a { padding: 1px 12px; border: 1px solid var(--rule); border-radius: 999px; }
     .pub-links a:hover, .pub-links a:focus-visible { border-color: currentColor; text-decoration: none; }
@@ -77,62 +110,94 @@
     footer { margin-top: 88px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 13px; }
 
     @media (max-width: 640px) {
-      main { padding: 44px 20px 32px; }
+      main { padding: 64px 20px 32px; }
       .intro { grid-template-columns: 1fr; gap: 20px; }
       .avatar { order: -1; width: 112px; height: 112px; }
       .name { font-size: 32px; }
+      .name-zh { font-size: 18px; }
       section { margin-top: 48px; }
       .pub { grid-template-columns: 1fr; gap: 14px; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .pub-media img { transition: none; }
+      body { transition: none; }
     }
   </style>
 </head>
 <body>
+  <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+
   <main>
     <header class="intro">
       <div>
-        <h1 class="name">昭思应</h1>
-        <p class="name-en" lang="en">Bangshuai Peng</p>
-        <p class="bio">清华大学工业工程系本科生，辅修统计学。目前关注机器人学习，特别是视觉–语言–动作（VLA）模型的泛化能力与评测。</p>
+        <h1 class="name">Bangshuai Peng<span class="name-zh" lang="zh-CN">彭邦帅</span></h1>
+        <p class="bio">I am an undergraduate student at Tsinghua University, majoring in Industrial Engineering with a minor in Statistics. I am interested in robot learning, especially how vision-language-action (VLA) models generalize and how to evaluate them.</p>
         <p class="links">
-          <a href="mailto:pbs23@mails.tsinghua.edu.cn">Email</a><span class="sep" aria-hidden="true">/</span><a href="https://github.com/siyingzhao">GitHub</a>
+          <a href="mailto:pengbangshuai@gmail.com">Email</a><span class="sep" aria-hidden="true">/</span><a href="https://github.com/siyingzhao">GitHub</a><span class="sep" aria-hidden="true">/</span><a href="https://openreview.net/profile?id=~Bangshuai_Peng1">OpenReview</a>
         </p>
       </div>
-      <img class="avatar" src="images/avatar.jpg" width="168" height="168" alt="昭思应的头像">
+      <img class="avatar" src="images/avatar.jpg" width="168" height="168" alt="Portrait of Bangshuai Peng">
     </header>
 
     <section aria-labelledby="news">
-      <h2 id="news">近期动态</h2>
+      <h2 id="news">News</h2>
       <ul class="news">
-        <li><time datetime="2026-10">2026.10</time><span><a href="#burger">BURGER</a> 预印本发布于 arXiv。</span></li>
+        <li><time datetime="2026-10">Oct. 2026</time><span>We released <a href="#burger">BURGER</a>, a benchmark for understanding VLA scaling through robotic drawing.</span></li>
       </ul>
     </section>
 
     <section aria-labelledby="research">
-      <h2 id="research">研究</h2>
+      <h2 id="research">Research</h2>
       <article class="pub" id="burger">
         <a class="pub-media" href="https://siyingzhao.github.io/BURGER/" tabindex="-1" aria-hidden="true">
-          <img src="images/burger.jpg" width="1600" height="900" alt="" loading="lazy">
+          <video autoplay muted loop playsinline preload="metadata" poster="images/burger.jpg" width="640" height="360">
+            <source src="images/burger.mp4" type="video/mp4">
+            <img src="images/burger.jpg" width="640" height="360" alt="">
+          </video>
         </a>
         <div>
-          <h3 class="pub-title" lang="en"><a href="https://siyingzhao.github.io/BURGER/">BURGER: Benchmarking and Understanding Robotic Generalization via Embodied Drawing</a></h3>
-          <p class="pub-authors" lang="en">Xiangyu Xu, <strong>Bangshuai Peng</strong>, Ziyi Liu, Mengjie Zhao, Chenhao Lu, Zhengyang Fan, Huazhe Xu, Kaizhe Hu</p>
-          <p class="pub-venue"><i>arXiv preprint</i>, 2026</p>
-          <p class="pub-links">
-            <a href="https://siyingzhao.github.io/BURGER/">项目主页</a>
-            <a href="https://arxiv.org/abs/2610.40532">arXiv</a>
-            <a href="https://github.com/siyingzhao/BURGER">代码</a>
+          <h3 class="pub-title"><a href="https://siyingzhao.github.io/BURGER/">BURGER: Benchmarking and Understanding Robotic Generalization via Embodied Drawing</a></h3>
+          <p class="pub-authors">
+            <a href="https://openreview.net/profile?id=~Xiangyu_Xu10">Xiangyu Xu</a>*,
+            <strong>Bangshuai Peng</strong>*,
+            <a href="https://taichi-pink.github.io/Ziyi-Liu/">Ziyi Liu</a>*,
+            <a href="https://qxjyqzw.github.io/">Mengjie Zhao</a>*,
+            <a href="https://ctp314.github.io/">Chenhao Lu</a>,
+            Zhengyang Fan,
+            <a href="https://hxu.rocks/">Huazhe Xu</a><sup>†</sup>,
+            <a href="https://hukz18.github.io/">Kaizhe Hu</a><sup>†</sup>
           </p>
-          <p class="pub-desc">一个以语言为条件的机器人绘画基准：机械臂从同一张空白画布出发，按指令画出物体或空间组合。我们用 282 项绘画任务、28,200 条仿真示范评测了五种代表性 VLA 模型在数据规模、语言理解和多模态行为上的表现，并在 Franka Panda 机械臂上完成了真机部署。</p>
+          <p class="pub-venue"><em>arXiv preprint</em>, 2026</p>
+          <p class="pub-note">* Equal contribution &nbsp; † Corresponding authors</p>
+          <p class="pub-links">
+            <a href="https://siyingzhao.github.io/BURGER/">Website</a>
+            <a href="https://arxiv.org/abs/2610.40532">arXiv</a>
+            <a href="https://github.com/Qxjyqzw/BURGER">Code</a>
+            <a href="https://huggingface.co/datasets/Zhaosying66/BURGER">Data</a>
+          </p>
+          <p class="pub-desc">A language-conditioned robotic drawing benchmark. Starting from the same blank canvas, a robot arm draws the object or spatial composition described by language. With 28,200 simulated demonstrations across 282 tasks, we evaluate five representative VLA models on data scaling, language grounding and multimodal behavior, and deploy a trained policy on a real Franka Panda arm.</p>
         </div>
       </article>
     </section>
 
     <footer>
-      <p>最后更新于 2026 年 11 月</p>
+      <p>Last updated November 2026</p>
     </footer>
   </main>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const media = matchMedia('(prefers-color-scheme: dark)');
+      const current = () => root.dataset.theme || (media.matches ? 'dark' : 'light');
+      document.querySelector('.theme-toggle').addEventListener('click', () => {
+        const next = current() === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try { localStorage.setItem('theme', next); } catch (e) {}
+      });
+    })();
+  </script>
 </body>
 </html>
