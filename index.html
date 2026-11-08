@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="昭思应的个人主页、写作与联系方式。">
-  <title>昭思应 · 昭思应的半位面</title>
+  <meta name="description" content="昭思应的个人主页、研究项目与联系方式。">
+  <title>昭思应 · 个人主页</title>
   <style>
     * { box-sizing: border-box; }
     body { margin: 0; background: white; color: #202124; font: 16px/1.75 Inter, "PingFang SC", "Microsoft YaHei", sans-serif; }
@@ -20,64 +20,58 @@
     section { margin-top: 60px; }
     h2 { font-size: 24px; font-weight: 500; }
     article { display: grid; grid-template-columns: 152px 1fr; align-items: center; gap: 26px; margin: 26px 0; }
-    .thumbnail { display: grid; place-items: center; min-height: 104px; background: #eff3f5; color: #38516b; font: italic 30px Georgia, serif; }
-    .code { background: #f5f1eb; color: #70573d; font: 19px "Courier New", monospace; }
-    h3 { font-size: 17px; }
-    time, footer { color: #636769; font-size: 14px; }
-    article p { margin-top: 4px; }
-    footer { border-top: 1px solid #e6e6e6; margin-top: 48px; padding-top: 16px; }
+    .menu { margin-bottom: 40px; padding-bottom: 12px; border-bottom: 1px solid #ddd; }
+    .project-image { width: 100%; display: block; }
+    .update { margin-top: 16px; }
+    time { color: #62676a; margin-right: 12px; }
+    h3 { font-size: 18px; line-height: 1.45; }
+    article p { margin: 6px 0; }
     @media (max-width: 620px) {
       main { padding: 32px 20px; }
       header { flex-direction: column-reverse; align-items: flex-start; gap: 12px; }
       header img { width: 108px; }
       section { margin-top: 36px; }
-      article { grid-template-columns: 84px 1fr; gap: 14px; }
-      .thumbnail { min-height: 84px; font-size: 21px; }
-      .code { font-size: 12px; }
+      article { grid-template-columns: 1fr; gap: 14px; }
+      .project-image { max-width: 300px; }
     }
   </style>
 </head>
 <body>
   <main>
-    <header>
+    <nav class="menu" aria-label="页内导航">
+      <a href="#profile">简介</a><a href="#updates">动态</a><a href="#research">研究</a>
+    </nav>
+    <header id="profile">
       <div>
         <h1>昭思应</h1>
-        <p>欢迎来到我的半位面。这里收录了我的文章和建站笔记。</p>
-        <nav aria-label="个人链接">
-          <a href="mailto:pbs23@mails.tsinghua.edu.cn">邮箱</a>
+        <p>清华大学 · 工业工程专业，辅修统计学。</p>
+        <nav aria-label="联系方式">
+          <a href="mailto:pbs23@mails.tsinghua.edu.cn">pbs23@mails.tsinghua.edu.cn</a>
           <a href="https://github.com/siyingzhao">GitHub</a>
-          <a href="archives/">文章归档</a>
         </nav>
       </div>
       <img src="images/avatar.jpg" width="172" height="172" alt="昭思应的头像">
     </header>
-    <section aria-labelledby="writing">
-      <h2 id="writing">文章与笔记</h2>
-      <article>
-        <div class="thumbnail" aria-hidden="true">∫ f(x) dx</div>
+    <section aria-labelledby="updates">
+      <h2 id="updates">近期动态</h2>
+      <p class="update"><time datetime="2026-10">2026.10</time> <a href="#burger">BURGER</a> 预印本发布，探索机器人如何根据语言指令作画。</p>
+    </section>
+    <section aria-labelledby="research">
+      <h2 id="research">研究项目</h2>
+      <article id="burger">
+        <img class="project-image" src="images/burger.jpg" alt="BURGER 项目演示画面">
         <div>
-          <h3><a href="2026/03/04/math-test/">MathJax 公式渲染测试</a></h3>
-          <time datetime="2026-03-04">2026 年 3 月 4 日</time>
-          <p>用数学公式检查 MathJax 在博客中的排版效果。</p>
-        </div>
-      </article>
-      <article>
-        <div class="thumbnail code" aria-hidden="true">&gt; hello_</div>
-        <div>
-          <h3><a href="2026/03/04/hello-world/">Hello World - 测试博文</a></h3>
-          <time datetime="2026-03-04">2026 年 3 月 4 日</time>
-          <p>用第一篇测试文章验证博客的生成流程。</p>
+          <h3 lang="en"><a href="https://siyingzhao.github.io/BURGER/">BURGER: Benchmarking and Understanding Robotic Generalization via Embodied Drawing</a></h3>
+          <p lang="en">Xiangyu Xu, Bangshuai Peng, Ziyi Liu, Mengjie Zhao, Chenhao Lu, Zhengyang Fan, Huazhe Xu, Kaizhe Hu</p>
+          <p><i>arXiv</i>, 2026</p>
+          <p>从空白画布出发，让机械臂按照指令作画。研究团队通过 282 项绘画任务，比较了五种视觉–语言–动作模型对物体、空间关系和动作轨迹的掌握程度。</p>
+          <nav aria-label="项目相关链接">
+            <a href="https://siyingzhao.github.io/BURGER/">项目主页</a>
+            <a href="https://arxiv.org/abs/2610.40532">论文</a>
+          </nav>
         </div>
       </article>
     </section>
-    <footer>
-      <nav aria-label="博客导航">
-        <a href="about/">关于</a>
-        <a href="tags/">标签</a>
-        <a href="categories/">分类</a>
-        <a href="resources/">资源</a>
-      </nav>
-    </footer>
   </main>
 </body>
 </html>
