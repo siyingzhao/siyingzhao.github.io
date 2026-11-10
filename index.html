@@ -69,9 +69,10 @@
     section { margin-top: 64px; }
     h2 { font-family: var(--serif); font-size: 24px; font-weight: 600; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
 
-    .news { list-style: none; margin: 18px 0 0; padding: 0; }
-    .news li { display: grid; grid-template-columns: 84px 1fr; gap: 12px; padding: 4px 0; }
-    .news time { color: var(--muted); font-variant-numeric: tabular-nums; }
+    .news, .awards { list-style: none; margin: 18px 0 0; padding: 0; }
+    .news li, .awards li { display: grid; grid-template-columns: 84px 1fr; gap: 12px; padding: 4px 0; }
+    .news time, .awards time { color: var(--muted); font-variant-numeric: tabular-nums; }
+    .awards .rank { color: var(--muted); }
 
     .pub { display: grid; grid-template-columns: 260px 1fr; gap: 28px; margin-top: 28px; align-items: start; }
     .pub-media { display: block; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; background: var(--card); }
@@ -166,6 +167,15 @@
           <p class="pub-desc">A language-conditioned robotic drawing benchmark. Starting from the same blank canvas, a robot arm draws the object or spatial composition described by language. With 28,200 simulated demonstrations across 282 tasks, we evaluate five representative VLA models on data scaling, language grounding and multimodal behavior, and deploy a trained policy on a real Franka Panda arm.</p>
         </div>
       </article>
+    </section>
+
+    <section aria-labelledby="honors">
+      <h2 id="honors">Honors &amp; Awards</h2>
+      <ul class="awards">
+        <li><time datetime="2026">2026</time><span>National Scholarship</span></li>
+        <li><time datetime="2025">2025</time><span>Tsinghua University Comprehensive Excellence Scholarship</span></li>
+        <li><time datetime="2025">2025</time><span>First Prize <span class="rank">(1/105)</span>, the 1st Tsinghua University AI Agent Development Innovation Competition</span></li>
+      </ul>
     </section>
 
     <section aria-labelledby="sports">
