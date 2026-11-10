@@ -21,6 +21,14 @@
     } catch (e) {}
   </script>
   <style>
+    /* Noto Serif SC (SIL OFL), subset to the three characters of the Chinese name. */
+    @font-face {
+      font-family: "Name Serif SC";
+      src: url("fonts/noto-serif-sc-name.woff2") format("woff2");
+      font-weight: 600;
+      font-display: swap;
+      unicode-range: U+5E05, U+5F6D, U+90A6;
+    }
     :root {
       --text: #1f2328;
       --muted: #656d76;
@@ -59,9 +67,9 @@
     :root[data-theme="dark"] .theme-toggle .moon { display: block; }
 
     .intro { display: grid; grid-template-columns: 1fr minmax(190px, 32%); gap: 32px; align-items: center; }
-    .name { font-family: var(--serif); font-size: 40px; font-weight: 600; letter-spacing: .01em; line-height: 1.2; }
-    .name-zh { margin-left: 12px; color: var(--muted); font-family: var(--sans); font-size: 22px; font-weight: 400; letter-spacing: .08em; }
-    .bio { margin-top: 20px; }
+    .name { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 16px; font-family: var(--serif); font-size: 40px; font-weight: 600; letter-spacing: .01em; line-height: 1.2; }
+    .name-zh { font-family: "Name Serif SC", "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", "STSong", serif; font-size: 34px; font-weight: 600; letter-spacing: .1em; }
+    .bio { margin-top: 22px; }
     .links { margin-top: 16px; }
     .links .sep { margin: 0 10px; color: var(--rule); }
     .avatar { display: block; width: 100%; height: auto; border-radius: 8px; background: var(--card); }
@@ -100,7 +108,8 @@
       .intro { grid-template-columns: 1fr; gap: 20px; }
       .avatar { order: -1; max-width: 240px; }
       .name { font-size: 32px; }
-      .name-zh { font-size: 18px; }
+      .name { column-gap: 12px; }
+      .name-zh { font-size: 27px; }
       section { margin-top: 48px; }
       .pub { grid-template-columns: 1fr; gap: 14px; }
     }
@@ -118,7 +127,7 @@
   <main>
     <header class="intro">
       <div>
-        <h1 class="name">Bangshuai Peng<span class="name-zh" lang="zh-CN">彭邦帅</span></h1>
+        <h1 class="name"><span>Bangshuai Peng</span><span class="name-zh" lang="zh-CN">彭邦帅</span></h1>
         <p class="bio">I am an incoming Ph.D. student at the <a href="https://iiis.tsinghua.edu.cn/en/">Institute for Interdisciplinary Information Sciences (IIIS)</a>, Tsinghua University, advised by <a href="https://shuranzh.github.io/shuran/">Prof. Shuran Zheng</a>. I am currently an undergraduate at Tsinghua, majoring in Industrial Engineering with a minor in Statistics. Previously, I was a research intern at <a href="https://tea-lab.github.io/">TEA Lab</a>, advised by <a href="https://hxu.rocks/">Prof. Huazhe Xu</a>. My research focuses on sim2real data and how the scale and diversity of data shape what robot policies learn.</p>
         <p class="links">
           <a href="mailto:pengbangshuai@gmail.com">Email</a><span class="sep" aria-hidden="true">/</span><a href="https://github.com/siyingzhao">GitHub</a><span class="sep" aria-hidden="true">/</span><a href="https://openreview.net/profile?id=~Bangshuai_Peng1">OpenReview</a>
